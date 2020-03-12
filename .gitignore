@@ -356,6 +356,7 @@ MigrationBackup/
 # .tfstate files
 *.tfstate
 *.tfstate.*
+main.tfvars
 
 # Crash log files
 crash.log

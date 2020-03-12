@@ -1,3 +1,15 @@
+variable "location" {
+    default = "Brazil South"
+}
+
+variable "sql_server"{
+    default = "sql-sonarqube-prod"
+}
+
+variable "sql_database"{
+    default="sqldb-sonarqube-prod"
+}
+
 variable "DuenoProyecto"{
     default = "adrian.hernandez@cenacrim.cl"
 }
@@ -18,10 +30,6 @@ variable "TipoAmbiente"{
     default = "Producción"
 }
 
-variable "SQLUser" {
-    default = "sonarqube"
-}
+variable "SQLUser" {}
 
-variable "SQLPassword" {
-    default = "sonar@azur3!"
-}
+variable "SQLPassword" {}
