@@ -17,17 +17,5 @@ write-host $connectionString
 
 Set-Location -Path ".."
 
-
-#Compilar imagen de docker y publicarla en el ACR
-Set-Location .\Docker
-
-az acr login --name $CONTAINER_REGISTRY_NAME
-
-docker build -t $CONTAINER_FULL_NAME .
-docker tag $CONTAINER_FULL_NAME $CONTAINER_FULL_NAME_WITH_FQDN
-docker push $CONTAINER_FULL_NAME_WITH_FQDN
-
-Set-Location -Path ".."
-
 #https://github.com/Hupka/sonarqube-azure-setup
 #https://pumpingco.de/blog/deploy-an-azure-web-app-for-containers-with-terraform/
