@@ -4,7 +4,8 @@ Set-Location .\CorePlatform
 terraform init
 terraform  apply -var-file="main.tfvars" -auto-approve
 
-$connectionString = terraform ouput connection_string
+$connectionString = (terraform output connection_string)
+
 write-host $connectionString
 
 Set-Location -Path ".."
