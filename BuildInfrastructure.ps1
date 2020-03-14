@@ -1,10 +1,3 @@
-$CONTAINER_IMAGE_NAME="sonarqube"
-$CONTAINER_IMAGE_TAG="latest"
-$CONTAINER_FULL_NAME = $CONTAINER_IMAGE_NAME + ":" + $CONTAINER_IMAGE_TAG
-$CONTAINER_REGISTRY_NAME="acrsonarqubeprod"
-$CONTAINER_REGISTRY_FQDN="$CONTAINER_REGISTRY_NAME.azurecr.io"
-$CONTAINER_FULL_NAME_WITH_FQDN=$CONTAINER_FULL_NAME+":"+$CONTAINER_REGISTRY_FQDN
-
 #Navega a ruta de CorePlatform (Resource Group, SQL Azure y Azure Container Registry) y los crea
 Set-Location .\CorePlatform
 
@@ -15,6 +8,11 @@ $connectionString = (terraform output connection_string)
 
 write-host $connectionString
 
+Set-Location -Path ".."
+
+#Publicación de container de docker hacia ACR
+Set-Location .\Docker
+.\PublishContainer.ps1 -connString $connectionString
 Set-Location -Path ".."
 
 #https://github.com/Hupka/sonarqube-azure-setup
