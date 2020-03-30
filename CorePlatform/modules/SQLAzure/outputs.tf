@@ -1,9 +1,9 @@
-output "sql_server_fqdn" {
-  value = azurerm_sql_server.shared.fully_qualified_domain_name
+output "DatabaseUser" {
+  value = azurerm_sql_server.shared.administrator_login
 }
 
-output "database_name" {
-  value = azurerm_sql_database.shared.name
+output "DatabasePassword" {
+  value = azurerm_sql_server.shared.administrator_login_password
 }
 
 output "connection_string" {
